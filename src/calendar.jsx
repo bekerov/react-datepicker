@@ -152,7 +152,7 @@ var Calendar = React.createClass({
 
   render () {
     return (
-      <div className="react-datepicker">
+      <div className="ignore-react-onclickoutside react-datepicker">
         <div className="react-datepicker__triangle"></div>
         <div className="react-datepicker__header">
           {this.renderPreviousMonthButton()}
