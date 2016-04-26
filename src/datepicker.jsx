@@ -55,6 +55,8 @@ var DatePicker = React.createClass({
       disabled: false,
       onFocus () {},
       onBlur () {},
+      onKeyUp () {},
+      onKeyDown () {},
       popoverAttachment: 'top left',
       popoverTargetAttachment: 'bottom left',
       popoverTargetOffset: '10px 0',
@@ -116,6 +118,11 @@ var DatePicker = React.createClass({
     } else if (event.key === 'Tab') {
       this.setOpen(false)
     }
+    this.props.onKeyDown(event)
+  },
+
+  onInputKeyUp (event) {
+    this.props.onKeyUp(event)
   },
 
   onClearClick (event) {
@@ -165,6 +172,7 @@ var DatePicker = React.createClass({
         onFocus={this.handleFocus}
         onBlur={this.handleBlur}
         onClick={this.onInputClick}
+        onKeyUp={this.onInputKeyUp}
         onKeyDown={this.onInputKeyDown}
         onChangeDate={this.setSelected}
         placeholder={this.props.placeholderText}
